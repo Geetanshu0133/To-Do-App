@@ -1,0 +1,116 @@
+body{
+    margin: 0;
+    background-color: rgb(216, 204, 204);
+    font-family: sans-serif;
+}
+
+.container{
+    padding-top: 2rem;
+    color: grey;
+    background-color: white;
+    width: 60%;
+    margin: 1rem auto;
+    position: relative;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+button{
+    color: white;
+    border: none;
+    height: 3rem;
+    width: 10rem;
+    font-size: large;
+    margin: 0.5rem;
+}
+
+#add-button{
+    background-color: grey;
+}
+
+#delete-button{
+    background-color: red;
+}
+
+#title{
+    margin: 0;
+    text-align: center;
+    font-size: 3rem;
+}
+
+#description-container{
+    border: 2px solid grey;
+    padding: 1rem 0.5rem;
+}
+
+#description-input{
+    width: 97%;
+    font-size: large;
+    border: none;
+    padding: 0.5rem;
+}
+
+#wrap{
+    display: flex;
+    border: 2px solid grey;
+    border-top: none;
+}
+
+#category-container{
+    flex: 1;
+    padding: 1rem 0.5rem;
+}
+
+#date-container{
+    flex: 1;
+    border-left: 2px solid grey;
+    padding: 1rem 0.5rem;
+}
+
+#category,#date-input{
+    font-size: large;
+    width: 90%;
+    border: none;
+    padding: 0.5rem;
+}
+
+.task-container{
+    margin: 0 1rem;
+    border-top: 2px solid grey;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.task-description{
+    margin: 0;
+}
+
+.task-date{
+    margin-top: 0.5rem;
+}
+
+.task-category{
+    height: 2.5rem;
+    width: 6rem;
+    float: right;
+    position: absolute;
+    right: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 3px;
+    background-color: rgb(100, 12, 100);
+}
+
+.check{
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: 1rem;
+}
