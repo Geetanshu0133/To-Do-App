@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title%></title>
+    <link rel="stylesheet" href="./css/home.css">
+
+    <!-- fontawesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <form action="/add-task" method="post">
+            <h1 id="title"><%= title%></h1>
+
+            <div id="description-container">
+                <label for="description">Description</label><br>
+                <input id="description-input" placeholder="What do you need to do?" type="text" name="description" required>
+            </div>
+
+            <div id="wrap">
+                <div id="category-container">
+                    <label for="category">Category</label><br>
+                    <select id="category" name="category">
+                        <% for (var i =0; i <category.length;  i++ ) { %>
+                            <option value="<%= category[i] %>"><%= category[i] %></option> 
+                        <% } %>            
+                    </select>
+                </div>
+
+                <div id="date-container">
+                    <label for="due_date">Due Date</label><br>
+                    <input onchange="isValidDate()" id="date-input" type="date" name="due_date" required>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button id="add-button" type="submit"><i class="fas fa-plus"></i> ADD TASK</button>
+                <button onclick="del()" type="button" id="delete-button"><i class="fas fa-trash-alt"></i> DELETE TASK</button>
+            </div>
+        </form>
+
+        <br><br>
+
+        <!-- displaying the tasks -->
+        <% for (let i =0; i <tasks.length;  i++ ) { %>
+            <div class="task-container">
+                <input onchange="checkedboxes()" value="<%= tasks[i].id %>" type="checkbox" name="delete" class="check">
+                <div>
+                    <% if(tasks[i].category!=="Choose a category") { %>
+                        <div class="task-category"><%= tasks[i].category %></div>
+                    <% } %>
+                    <h3 class="task-description"><%= tasks[i].description %></h3>
+                    <div class="task-date"><i class="far fa-calendar-alt"></i> <%= tasks[i].due_date %></div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+
+    <script src="./js/index.js"></script>
+    <!-- Adding cdn for jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    
+</body>
+</html>
